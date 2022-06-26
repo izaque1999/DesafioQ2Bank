@@ -23,10 +23,10 @@ create table transactions(
 );
 
 alter table transactions
-add foreign key (id_origin) references users(id);
+add foreign key (id_payer) references users(id);
 
 alter table transactions
-add foreign key (id_dest) references users(id);
+add foreign key (id_payee) references users(id);
 
 insert into users (name_user, type_user, CPF_CNPJ, email, password_user, balance) values ('Izaque Magalhaes Silva ', 'storekeeper', '321.123.321-80','izaquemagalhaes@outlook.com', '12300596', 2300.30);
 insert into users (name_user, type_user, CPF_CNPJ, email, password_user, balance) values ('Eliana Inacio Magalhaes', 'common', '450.155.711-55', 'elianainacio@gmail.com', '22111976e', 950.15);
