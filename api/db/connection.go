@@ -15,7 +15,7 @@ func OpenConnection() (*sql.DB, error) {
 		fmt.Println("Erro na conexão: ", err)
 		return db, err
 	}
-	//defer db.Close()
+	defer db.Close()
 
 	return db, nil
 }

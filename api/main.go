@@ -1,8 +1,8 @@
 package main
 
 import (
-	"q2bank/db"
-	"q2bank/models"
+	"q2bank/api/db"
+	"q2bank/api/models"
 )
 
 type url struct {
@@ -15,18 +15,18 @@ var transaction models.Transacao
 func main() {
 
 	transaction = models.Transacao{
-		ID:      1,
 		IDPayer: 2,
 		IDPayee: 3,
-		Valor:   50,
+
+		Valor: 50,
 	}
 
 	//err := configs.Load()
 	//if err != nil {
 	//	panic(err)
 	//}
-	models.InsertTransaction(transaction)
-	models.UpdateUser(user)
+	//models.InsertTransaction(transaction)
+	//models.UpdateUser(user)
 	//router := chi.NewRouter()
 	//router.Post("/", handlers.Create)
 	//router.Put("/{id}", handlers.UpdateHandler)
