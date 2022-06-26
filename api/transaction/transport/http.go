@@ -16,7 +16,7 @@ var (
 	msgErro         int
 )
 
-func TransactionHandle(w http.ResponseWriter, r *http.Request) {
+func TransactionHandler(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method != http.MethodPost {
 		fmt.Fprint(w, "Method is not POST")

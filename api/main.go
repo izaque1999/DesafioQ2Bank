@@ -1,40 +1,19 @@
 package main
 
 import (
-	"q2bank/api/db"
-	"q2bank/api/models"
+	"net/http"
+	transactionTransport "q2bank/api/transaction/transport"
+	"q2bank/api/user/transport"
 )
-
-type url struct {
-	Authorized string
-}
-
-var user models.Usuario
-var transaction models.Transacao
 
 func main() {
 
-	transaction = models.Transacao{
-		IDPayer: 2,
-		IDPayee: 3,
+	//Router user
+	http.HandleFunc("/getUserID", transport.GetUserIDHandler)
+	http.HandleFunc("/createUser", transport.CreateUserHandler)
 
-		Valor: 50,
-	}
+	//Router transaction
+	http.HandleFunc("/getTransactions", transactionTransport.GetTransactionsHandler)
+	http.HandleFunc("/transaction", transactionTransport.TransactionHandler)
 
-	//err := configs.Load()
-	//if err != nil {
-	//	panic(err)
-	//}
-	//models.InsertTransaction(transaction)
-	//models.UpdateUser(user)
-	//router := chi.NewRouter()
-	//router.Post("/", handlers.Create)
-	//router.Put("/{id}", handlers.UpdateHandler)
-	//router.Delete("/{id}", handlers.Delete)
-	//router.Get("/", handlers.List)
-	//router.Get("/", handlers.Get)
-
-	//link, err := http.Get("")
-	//	http.ListenAndServe(fmt.Sprintf(":%s", configs.GetServerPort()), router) */
-	db.OpenConnection()
 }
