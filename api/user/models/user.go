@@ -25,6 +25,6 @@ func ConfigQueryGet(ID int64) string {
 }
 
 func ConfigQueryUpdate(user User) string {
-	query := fmt.Sprintf("update users set wallet = %v where id = %v ;", user.Balance, user.ID)
+	query := fmt.Sprintf("update users set balance = %v where id = %v ;", user.Balance, user.ID)
 	return query
 }
