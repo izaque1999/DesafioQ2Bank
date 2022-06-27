@@ -40,5 +40,17 @@ func GetTransactions(ID int64) ([]models.Transaction, error) {
 
 func InsertTransaction(transactionInsert models.Transaction) error {
 
+	conn, err := db.OpenConnection()
+	if err != nil {
+		return err
+	}
+
+	defer conn.Close()
+
+	query = models.ConfigQueryInsert(transactionInsert)
+	_, err = conn.Exec(query)
+	if err != nil {
+		return err
+	}
 	return nil
 }

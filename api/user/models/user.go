@@ -20,7 +20,7 @@ func ConfigQueryCreate(user User) string {
 }
 
 func ConfigQueryGet(ID int64) string {
-	query := fmt.Sprintf("select * from users where id = %v", ID)
+	query := fmt.Sprintf("select * from users where id = %v ;", ID)
 	return query
 }
 

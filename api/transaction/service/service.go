@@ -41,17 +41,6 @@ func MakeTransaction(MTransaction models.Transaction) (string, error) {
 		return "Mock is false", err
 	}
 
-	token, cond := CheckPayer(payer, MTransaction.Values)
-	if token != true {
-
-		checkMSG := fmt.Sprintf("Permission denied: %v", cond)
-		return checkMSG, err
-	}
-	err = repository.InsertTransaction(MTransaction)
-	if err != nil {
-		return "Error entering transaction in Data Base", err
-	}
-
 	payer, err = userRepository.GetUserId(MTransaction.IDPayer)
 	if err != nil {
 		return "Payer does not exist", err
@@ -60,6 +49,18 @@ func MakeTransaction(MTransaction models.Transaction) (string, error) {
 	payee, err = userRepository.GetUserId(MTransaction.IDPayee)
 	if err != nil {
 		return "Payee does not exist", err
+	}
+
+	token, cond := CheckPayer(payer, MTransaction.Values)
+	if token != true {
+
+		checkMSG := fmt.Sprintf("Permission denied: %v", cond)
+		return checkMSG, err
+	}
+
+	err = repository.InsertTransaction(MTransaction)
+	if err != nil {
+		return "Error entering transaction in Data Base", err
 	}
 
 	payer.Balance -= MTransaction.Values
@@ -117,11 +118,13 @@ func GetTransaction(ID string) (string, error) {
 }
 
 func CheckPayer(payer userModels.User, Balance float64) (bool, string) {
-	if payer.Balance < Balance {
-		return false, "insufficient funds"
-	}
+	//if payer.Balance < Balance {
+	//		return false, "insufficient funds"
+	//	}
 
+	fmt.Printf("Payer fora da condiçao: %v\n", payer)
 	if payer.Type != "common" {
+		fmt.Printf("PayerType: %v", payer.Type)
 		return false, "Storekeeper cannot transfer"
 	}
 

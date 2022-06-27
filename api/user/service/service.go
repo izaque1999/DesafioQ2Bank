@@ -2,6 +2,7 @@ package service
 
 import (
 	"encoding/json"
+	"fmt"
 	"q2bank/api/user/models"
 	"q2bank/api/user/repository"
 	"strconv"
@@ -16,7 +17,7 @@ var (
 )
 
 func CreateUser(userCreate models.User) (string, error) {
-
+	fmt.Printf("UserCreate: %v ", userCreate)
 	switch {
 	case userCreate.Type == "storekeeper":
 		break

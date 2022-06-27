@@ -35,7 +35,7 @@ func TransactionHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if demand.IDPayer == demand.IDPayer {
+	if demand.IDPayer == demand.IDPayee {
 		fmt.Fprint(w, "Impossible to transfer to yourself")
 		return
 	}

@@ -6,10 +6,10 @@ import (
 )
 
 type Transaction struct {
-	IDPayer int64   `json:"idpayer"`
-	IDPayee int64   `json:"idpayee"`
-	Values  float64 `json:"valor"`
-	Date    string  `json:"date"`
+	IDPayer int64
+	IDPayee int64
+	Values  float64
+	Date    string
 }
 
 func ConfigQueryInsert(transaction Transaction) string {

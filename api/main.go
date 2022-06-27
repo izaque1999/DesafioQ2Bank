@@ -16,4 +16,5 @@ func main() {
 	http.HandleFunc("/getTransactions", transactionTransport.GetTransactionsHandler)
 	http.HandleFunc("/transaction", transactionTransport.TransactionHandler)
 
+	http.ListenAndServe(":9000", nil)
 }
