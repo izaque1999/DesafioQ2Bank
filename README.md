@@ -44,10 +44,10 @@ Insira o IDPayer, IDPayee e Valor da transferência
 - db = Conexão do banco de dados e script para criar o mysql
 - transaction = contém todos os arquivos relacionados a transação
 - user = contém todos os arquivos relacionados ao usuário
-    - models = contém a struct transaction/user e as query para table transaction/user
-    - repository = comunicação das funções com os dados do banco
-    - service = serviços, funções com as regras de negócio
-    - transport = decode dos dados de requisição para o código
+- models = contém a struct transaction/user e as query para table transaction/user
+- repository = comunicação das funções com os dados do banco
+- service = serviços, funções com as regras de negócio
+- transport = decode dos dados de requisição para o código
 
 ## Observação
 
