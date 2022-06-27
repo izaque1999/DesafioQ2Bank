@@ -118,9 +118,9 @@ func GetTransaction(ID string) (string, error) {
 }
 
 func CheckPayer(payer userModels.User, Balance float64) (bool, string) {
-	//if payer.Balance < Balance {
-	//		return false, "insufficient funds"
-	//	}
+	if payer.Balance < Balance {
+		return false, "insufficient funds"
+	}
 
 	fmt.Printf("Payer fora da condiçao: %v\n", payer)
 	if payer.Type != "common" {
