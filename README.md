@@ -7,20 +7,21 @@ A aplicação API tem o objetivo de fazer transações entre usuários
 
 ## Decisões técnincas
 
-As decisões tomadas para desenvolver esta aplicação foi de criar uma aplicação no modelo "scaffolf" para que assim o projeto possa evoluir futuramente.
+As decisões tomadas para desenvolver esta aplicação foi de criar uma aplicação no modelo "scaffold" para que assim o projeto possa evoluir futuramente.
 
 ## Instalação
 
-A aplicação necessite de um ambiente com [Golang](https://go.dev/doc/install) 1.18+ para rodar.
+A aplicação necessita de um ambiente com [Golang](https://go.dev/doc/install) 1.18+ para rodar.
 
 
 ### Inicializar o projeto - Passo 1
 
-Alterar o arquivo connection.go (api/db) e inserir as credencias do seu banco local "db, err := sql.Open("mysql", "root:12300596Izaque@tcp(localhost)/q2bank")"
+Alterar o arquivo connection.go (api/db) e inserir as credencias do seu banco local "db, err := sql.Open("mysql", "usuario:senha@tcp(localhost)/dbname")"
 
 Rodar os comandos do arquivo init.sql (api/db) no seu mysql local.
 
-rodar o main.go
+Rodar o comando
+run main.go
 
 
 ### Passo 2:
@@ -43,7 +44,7 @@ Insira o IDPayer, IDPayee e Valor da transferência
 db = Conexão do banco de dados e script para criar o mysql
 transaction = contém todos os arquivos relacionados a transação
 user = contém todos os arquivos relacionados a transação
-    models = contém a struct transaction e as query para table transaction
+    models = contém a struct transaction/user e as query para table transaction/user
     repository = comunicação das funções com os dados do banco
     service = serviços, funções com as regras de negócio
     transport = decode dos dados de requisição para o código
