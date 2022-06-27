@@ -1,9 +1,0 @@
-[api]
-port = "9000"
-
-[database]
-host = "localhost"
-port = ""
-user = "root"
-pass = ""
-name = "dbq2bank"
